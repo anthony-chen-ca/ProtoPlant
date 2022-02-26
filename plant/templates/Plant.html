@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Websiterino</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+  <style type="text/css">
+    body {
+  background-color: white;
+}
+
+h1 {
+  color: white;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  </style>
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">
+
+
+    window.onload=function(){
+      
+ google.charts.load('current', {
+   packages: ['corechart', 'line']
+ });
+
+ google.charts.setOnLoadCallback(drawChart1);
+ google.charts.setOnLoadCallback(drawChart2);
+ google.charts.setOnLoadCallback(drawChart3);
+ google.charts.setOnLoadCallback(drawChart4);
+
+ function drawChart1() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('number', 'X');
+   data.addColumn('number', 'Temperature');
+   data.addColumn('number', 'Recommended');
+   var recommended = 23;
+   var dataArray = [
+     [0, 25, recommended],
+     [5, 18, recommended],
+     [10, 23, recommended],
+     [15, 20, recommended],
+     [20, 21, recommended]
+   ];
+   data.addRows(dataArray);
+
+   var options = {
+     title: 'Temperature (Celsius) vs Number of Days',
+     hAxis: {
+       title: 'Number of Days'
+     },
+     vAxis: {
+       title: 'Temperature (Celsius)'
+     },
+     width: 700,
+     height: 500,
+     colors: ['#2D3E50', '#0DAE00']
+   };
+
+   var chart = new google.visualization.LineChart(document.getElementById('chart1_div'));
+
+   chart.draw(data, options);
+ }
+
+ function drawChart2() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('number', 'X');
+   data.addColumn('number', 'Light');
+   var dataArray = [
+     [0, 507],
+     [5, 490],
+     [10, 584],
+     [15, 520],
+     [20, 514]
+   ];
+   data.addRows(dataArray);
+
+   var options = {
+     title: 'Light vs Number of Days',
+     hAxis: {
+       title: 'Number of Days'
+     },
+     vAxis: {
+       title: 'Light'
+     },
+     width: 700,
+     height: 500,
+     colors: ['#2D3E50']
+   };
+
+   var chart = new google.visualization.LineChart(document.getElementById('chart2_div'));
+
+   chart.draw(data, options);
+ }
+
+ function drawChart3() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('number', 'X');
+   data.addColumn('number', 'Humidity');
+   var dataArray = [
+     [0, 1022],
+     [5, 1023],
+     [10, 1035],
+     [15, 1017],
+     [20, 1028]
+   ];
+   data.addRows(dataArray);
+
+   var options = {
+     title: 'Humidity vs Number of Days',
+     hAxis: {
+       title: 'Number of Days'
+     },
+     vAxis: {
+       title: 'Humidity'
+     },
+     width: 700,
+     height: 500,
+     colors: ['#2D3E50']
+   };
+
+   var chart = new google.visualization.LineChart(document.getElementById('chart3_div'));
+
+   chart.draw(data, options);
+ }
+
+ function drawChart4() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('number', 'X');
+   data.addColumn('number', 'Soil Moisture');
+   var dataArray = [
+     [0, 24],
+     [5, 25],
+     [10, 25],
+     [15, 28],
+     [20, 24]
+   ];
+   data.addRows(dataArray);
+
+   var options = {
+     title: 'Soil Moisture vs Number of Days',
+     hAxis: {
+       title: 'Number of Days'
+     },
+     vAxis: {
+       title: 'Soil Moisture'
+     },
+     width: 700,
+     height: 500,
+     colors: ['#2D3E50']
+   };
+
+   var chart = new google.visualization.LineChart(document.getElementById('chart4_div'));
+
+   chart.draw(data, options);
+ }
+
+
+    }
+
+</script>
+
+</head>
+<body>
+  <!DOCTYPE html>
+<html>
+  <!--Import-->
+  <title>ProtoPlant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    pr html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Open Sans", sans-serif;
+    }
+
+  </style>
+
+  <body>
+
+    <!--Sidebar-->
+    <div class="w3-sidebar w3-flat-midnight-blue w3-bar-block" style="width:20%">
+      <h1 class="w3-center">
+        ProtoPlant
+      </h1>
+      <p> </p>
+      <img id="logo" src="https://image.ibb.co/bSDexf/imageedit-18-3528029888.png" class="center" height="100" width="100">
+      <p> </p>
+
+      <button class="w3-bar-item w3-button w3-border-top w3-border-bottom tablink w3-white" onclick="openTab(event,'Info')">
+      <i class="fa fa-bars"></i> Dashboard
+      </button>
+
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Temperature')">
+      <img src="https://image.ibb.co/dBTv3L/temperature-2-xxl.png" width = "40" height = "40"> Temperature
+      </button>
+
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Light')">
+      <img src="https://image.ibb.co/eTrF3L/sun-3-xxl.png" width = "40" height = "40"> Light
+      </button>
+
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Humidity')">
+      <img src="https://image.ibb.co/jObRA0/water-xxl.png" width = "40" height = "40"> Humidity
+      </button>
+
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Soil Moisture')">
+      <img src="https://image.ibb.co/knXQnf/imageedit-6-9303515359.png" width = "40" height = "40"> Soil Moisture
+      </button>
+    </div>
+
+    <div style="margin-left:20%">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <!--Info-->
+      <div id="Info" class="infotab" style="display:block">
+        <div class="w3-container w3-green">
+          <h5>Info</h5>
+        </div>
+
+        <div class="w3-container">
+
+          <p> </p>
+          <img src="http://www.macmillandictionaryblog.com/wp-content/uploads/2018/03/dandelion-810x378.jpg" class="center" width="100%">
+          <p> </p>
+
+          <table class="w3-table-all w3-card-4">
+            <tr class="w3-green">
+              <th>General Information</th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>Dandelion</td>
+            </tr>
+            <tr>
+              <th>Scientific Name</th>
+              <td>Taraxacum</td>
+            </tr>
+            <tr>
+              <th>Blooming Season</th>
+              <td>May to October</td>
+            </tr>
+            <tr>
+              <th>Average Lifespan</th>
+              <td>10 to 13 years</td>
+            </tr>
+            <tr>
+              <th>Average Number of Flower Head Seeds</th>
+              <td>180</td>
+            </tr>
+            <tr class="w3-green">
+              <th>Data</th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Temperature</th>
+              <td>10</td>
+            </tr>
+            <tr>
+              <th>Light</th>
+              <td>20</td>
+            </tr>
+            <tr>
+              <th>Humidity</th>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th>Soil Moisture</th>
+              <td>40</td>
+            </tr>
+          </table>
+        </div>
+        <p> </p>
+
+      </div>
+
+      <!--Temperature-->
+      <div id="Temperature" class="infotab" style="display:none">
+        <div class="w3-container w3-green">
+          <h5>Temperature</h5>
+        </div>
+
+        <div class="w3-container">
+          <div id="chart1_div"></div>
+          <table class="w3-table-all w3-card-4">
+            <tr class="w3-green">
+              <th>Date</th>
+
+              <th>Temperature</th>
+
+            </tr>
+            <tr>
+              <td>11/02/2018</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11/03/2018</td>
+              <td>20</td>
+            </tr>
+          </table>
+        </div>
+
+
+      </div>
+
+      <!--Light-->
+      <div id="Light" class="infotab" style="display:none">
+        <div class="w3-container w3-green">
+          <h5>Light</h5>
+        </div>
+
+        <div class="w3-container">
+          <div id="chart2_div"></div>
+          <table class="w3-table-all w3-card-4">
+            <tr class="w3-green">
+              <th>Date</th>
+
+              <th>Light</th>
+
+            </tr>
+            <tr>
+              <td>11/02/2018</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11/03/2018</td>
+              <td>20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!--Humidity-->
+      <div id="Humidity" class="infotab" style="display:none">
+        <div class="w3-container w3-green">
+          <h5>Humidity</h5>
+        </div>
+
+        <div class="w3-container">
+          <div id="chart3_div"></div>
+          <table class="w3-table-all w3-card-4">
+            <tr class="w3-green">
+              <th>Date</th>
+
+              <th>Humidity</th>
+            </tr>
+            <tr>
+              <td>11/02/2018</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11/03/2018</td>
+              <td>20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!--Soil Moisture-->
+      <div id="Soil Moisture" class="infotab" style="display:none">
+        <div class="w3-container w3-green">
+          <h5>Soil Moisture</h5>
+        </div>
+
+        <div class="w3-container">
+          <div id="chart4_div"></div>
+          <table class="w3-table-all w3-card-4">
+            <tr class="w3-green">
+              <th>Date</th>
+
+              <th>Soil Moisture</th>
+
+            </tr>
+            <tr>
+              <td>11/02/2018</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11/03/2018</td>
+              <td>20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <script>
+        function openTab(evt, tab) {
+          var i;
+          var x = document.getElementsByClassName("infotab");
+          var tablinks;
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-white", "");
+          }
+          document.getElementById(tab).style.display = "block";
+          evt.currentTarget.className += " w3-white";
+        }
+
+      </script>
+
+      <div class="w3-panel w3-leftbar w3-sand">
+        <p id="quote" class="w3-large w3-serif">
+          
+        </p>
+        <p id="speaker"></p>
+      </div>
+
+      <script>
+        var x = Math.floor(Math.random() * 4);
+        var quoteArray = [
+          ['"Like people, plants respond to extra attention."'],
+          ['"So plant your own gardens and decorate your own soul, instead of waiting for someone to bring you flowers."'],
+          ['"Use plants to bring life."'],
+          ['"Plants are radical. Remember that."']
+        ];
+        var speakerArray = [
+          ['- H. Peter Loewer'],
+          ['- Jorge Luis Borges'],
+          ['- Douglas Wilson'],
+          ['- Anonymous']
+        ]
+        document.getElementById("quote").innerHTML = quoteArray[x];
+        document.getElementById("speaker").innerHTML = speakerArray[x];
+
+      </script>
+
+      <!--Footer-->
+      <div class="w3-container w3-green">
+        <p>© 2018 - SADD</p>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "08cbxveg"
+      }], "*")
+    }
+  </script>
+</body>
+</html>
